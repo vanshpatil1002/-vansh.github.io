@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>श्री गणेशोत्सव २०२६ | पाटील परिवार</title>
+
+<!-- Marathi / Devanagari font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:'Noto Serif Devanagari',serif;
+    background:#071b1c;
+    color:#fff;
+}
+
+/* =========================
+   MAIN SLIDER
+========================= */
+
+.slider{
+    width:100vw;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    opacity:0;
+    pointer-events:none;
+    transform:scale(1.06);
+
+    transition:
+        opacity .8s ease,
+        transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.slide.active{
+    opacity:1;
+    pointer-events:auto;
+    transform:scale(1);
+}
+
+/* =========================
+   BACKGROUNDS
+========================= */
+
+.slide:nth-child(1){
+    background:
+        radial-gradient(circle at 50% 30%,#d7b35a33,transparent 30%),
+        linear-gradient(135deg,#061b1c,#0d3030 50%,#061617);
+}
+
+.slide:nth-child(2){
+    background:
+        radial-gradient(circle at 50% 20%,#d9bd6a22,transparent 35%),
+        linear-gradient(135deg,#102f2c,#071b1c);
+}
+
+.slide:nth-child(3){
+    background:
+        radial-gradient(circle at 50% 50%,#c9a34b22,transparent 40%),
+        linear-gradient(135deg,#191b2c,#080b16);
+}
+
+.slide:nth-child(4){
+    background:
+        radial-gradient(circle at 50% 20%,#e2c16b20,transparent 35%),
+        linear-gradient(135deg,#291e16,#101313);
+}
+
+.slide:nth-child(5){
+    background:
+        radial-gradient(circle at 50% 30%,#c6a45a22,transparent 40%),
+        linear-gradient(135deg,#102d29,#071616);
+}
+
+.slide:nth-child(6){
+    background:
+        radial-gradient(circle at 50% 30%,#d7b76622,transparent 40%),
+        linear-gradient(135deg,#061b1c,#102f2c);
+}
+
+/* =========================
+   GOLD DECORATION
+========================= */
+
+.gold{
+    color:#e7c66b;
+}
+
+.frame{
+    position:absolute;
+    inset:18px;
+    border:1px solid #d8bb6a66;
+    border-radius:25px;
+    pointer-events:none;
+}
+
+.frame:before,
+.frame:after{
+    content:"✦";
+    position:absolute;
+    color:#d8bb6a;
+    font-size:22px;
+}
+
+.frame:before{
+    left:-12px;
+    top:-14px;
+}
+
+.frame:after{
+    right:-12px;
+    bottom:-14px;
+}
+
+.ornament{
+    color:#d7b766;
+    font-size:25px;
+    letter-spacing:8px;
+    margin:15px 0;
+}
+
+.content{
+    width:min(900px,90%);
+    max-height:90vh;
+    overflow:auto;
+    padding:30px 20px;
+
+    scrollbar-width:none;
+}
+
+.content::-webkit-scrollbar{
+    display:none;
+}
+
+/* =========================
+   OPENING CIRCLE
+========================= */
+
+.ganesh-wrap{
+    position:relative;
+    width:220px;
+    height:220px;
+    margin:20px auto 25px;
+}
+
+.ganesh-circle{
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+    border:2px solid #dfc06b;
+
+    background:
+        radial-gradient(circle,#173c39,#071b1c 70%);
+
+    box-shadow:
+        0 0 40px #d7b76622,
+        inset 0 0 35px #0008;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+
+    transition:.5s;
+}
+
+.ganesh-circle:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 60px #d7b76655;
+}
+
+/* =========================
+   GANESH OPENING IMAGE
+========================= */
+
+/*
+==========================================================
+CHANGE GANPATI OPENING IMAGE HERE
+==========================================================
+
+If you want an image inside the opening circle,
+replace the src filename below.
+
+Example:
+src="ganpati_open_7Kx92.jpg"
+
+Keep the image file in the SAME folder as this HTML file.
+==========================================================
+*/
+
+.ganesh-symbol{
+    font-size:120px;
+    line-height:1;
+    color:#e4bd55;
+
+    filter:drop-shadow(0 5px 12px #000);
+
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+/* Split animation */
+
+.ganesh-circle.open .left-half{
+    transform:translateX(-110%);
+}
+
+.ganesh-circle.open .right-half{
+    transform:translateX(110%);
+}
+
+.left-half,
+.right-half{
+    position:absolute;
+    top:0;
+    width:50%;
+    height:100%;
+    background:#102f2c;
+    z-index:5;
+
+    transition:1s cubic-bezier(.7,0,.2,1);
+}
+
+.left-half{
+    left:0;
+    border-radius:220px 0 0 220px;
+}
+
+.right-half{
+    right:0;
+    border-radius:0 220px 220px 0;
+}
+
+.tap-text{
+    font-size:14px;
+    color:#d8c991;
+    margin-top:8px;
+    animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+
+    50%{
+        opacity:.45;
+    }
+
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.om{
+    font-size:22px;
+    color:#e3c36b;
+    margin-bottom:10px;
+}
+
+h1{
+    font-size:clamp(30px,6vw,65px);
+    color:#f0d47d;
+    font-weight:700;
+    text-shadow:0 4px 20px #000;
+    margin:5px 0;
+}
+
+h2{
+    color:#efd277;
+    font-size:clamp(25px,4vw,42px);
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#e8dfc2;
+    font-size:clamp(17px,2.5vw,24px);
+    line-height:2;
+}
+
+.gold-line{
+    width:180px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #dfc16a,
+        transparent
+    );
+
+    margin:20px auto;
+}
+
+/* =========================
+   INVITATION CARD
+========================= */
+
+.invitation{
+    margin:20px auto;
+    padding:28px;
+
+    border:1px solid #d7b76655;
+    border-radius:22px;
+
+    background:#ffffff08;
+    backdrop-filter:blur(10px);
+
+    box-shadow:0 20px 60px #0005;
+
+    max-width:780px;
+}
+
+.invitation p{
+    font-size:clamp(17px,2.5vw,23px);
+    line-height:2;
+    color:#eee8d5;
+}
+
+.highlight{
+    color:#efd071;
+    font-weight:bold;
+}
+
+/* =========================
+   GANESH IMAGE
+========================= */
+
+.ganesh-image{
+    width:min(270px,65vw);
+    height:min(270px,65vw);
+
+    object-fit:cover;
+
+    border-radius:50%;
+    border:2px solid #d8bb6a;
+
+    padding:8px;
+
+    background:#071b1c;
+
+    box-shadow:0 0 50px #d8bb6a22;
+}
+
+/* =========================
+   FAMILY
+========================= */
+
+.family-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:18px;
+    margin-top:25px;
+}
+
+.person{
+    padding:12px 8px;
+
+    border:1px solid #d8bb6a33;
+    border-radius:18px;
+
+    background:#ffffff07;
+
+    transition:.35s;
+}
+
+.person:hover{
+    transform:translateY(-8px);
+    border-color:#d8bb6a;
+}
+
+/* =========================
+   FAMILY PHOTO
+========================= */
+
+.person img,
+.avatar{
+
+    width:100px;
+    height:100px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid #d8bb6a;
+}
+
+.person img{
+    display:block;
+    margin:auto;
+}
+
+.avatar{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:auto;
+
+    background:linear-gradient(
+        135deg,
+        #d7b766,
+        #8c6a29
+    );
+
+    color:#10201f;
+
+    font-size:25px;
+    font-weight:bold;
+}
+
+.person-name{
+    margin-top:10px;
+
+    font-size:14px;
+
+    color:#eee4c3;
+}
+
+/* =========================
+   DATES
+========================= */
+
+.date-box{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:18px;
+    margin:25px auto;
+}
+
+.date-card{
+    min-width:150px;
+    padding:22px;
+
+    border:1px solid #d7b76655;
+    border-radius:20px;
+
+    background:#ffffff08;
+}
+
+.date-card .big{
+    font-size:38px;
+    color:#e7c66b;
+    font-weight:bold;
+}
+
+.date-card small{
+    color:#ddd3b2;
+}
+
+/* =========================
+   ADDRESS
+========================= */
+
+.address{
+    display:inline-block;
+
+    padding:17px 28px;
+
+    border:1px solid #d7b766;
+    border-radius:50px;
+
+    color:#f0d27b;
+
+    text-decoration:none;
+
+    background:#ffffff08;
+
+    transition:.3s;
+}
+
+.address:hover{
+    background:#d7b766;
+    color:#10201f;
+    transform:scale(1.05);
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation{
+    position:fixed;
+
+    bottom:25px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+    gap:9px;
+
+    z-index:100;
+}
+
+.dot{
+    width:9px;
+    height:9px;
+
+    border-radius:50%;
+
+    border:1px solid #d8bb6a;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.dot.active{
+    width:28px;
+
+    border-radius:20px;
+
+    background:#d8bb6a;
+}
+
+.arrow{
+    position:fixed;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    z-index:100;
+
+    width:45px;
+    height:45px;
+
+    border:1px solid #d8bb6a66;
+
+    background:#ffffff08;
+
+    color:#e4c56d;
+
+    border-radius:50%;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(8px);
+}
+
+.prev{
+    left:18px;
+}
+
+.next{
+    right:18px;
+}
+
+.arrow:hover{
+    background:#d8bb6a;
+    color:#10201f;
+}
+
+/* =========================
+   PETALS
+========================= */
+
+.petal{
+    position:fixed;
+
+    top:-30px;
+
+    color:#d9bd6a;
+
+    opacity:.35;
+
+    animation:fall linear infinite;
+
+    pointer-events:none;
+}
+
+@keyframes fall{
+
+    from{
+        transform:translateY(-50px) rotate(0);
+    }
+
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:700px){
+
+    .frame{
+        inset:9px;
+    }
+
+    .content{
+        padding:25px 10px 70px;
+    }
+
+    .family-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .person img,
+    .avatar{
+        width:75px;
+        height:75px;
+    }
+
+    .arrow{
+        width:38px;
+        height:38px;
+        font-size:17px;
+    }
+
+    .invitation{
+        padding:18px;
+    }
+
+}
+
+@media(min-width:701px) and (max-width:1000px){
+
+    .family-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="slider">
+
+
+<!-- =====================================================
+     SLIDE 1 - OPENING
+===================================================== -->
+
+<section class="slide active">
+
+<div class="frame"></div>
+
+<div class="content">
+
+<div class="om">
+॥ श्री गणेशाय नमः ॥
+</div>
+
+<div class="ornament">
+✦ ❈ ✦
+</div>
+
+<div class="ganesh-wrap">
+
+<div
+    class="ganesh-circle"
+    id="ganeshButton"
+    onclick="openInvitation()"
+>
+
+<div class="left-half"></div>
+
+<div class="right-half"></div>
+
+<div class="ganesh-symbol">
+ॐ
+</div>
+
+</div>
+
+<div class="tap-text">
+गणरायांचे दर्शन घेण्यासाठी स्पर्श करा
+</div>
+
+</div>
+
+<div class="gold-line"></div>
+
+<h1>
+गणपती बाप्पा मोरया!
+</h1>
+
+<p class="subtitle">
+
+प्रेम, भक्ती आणि आनंदाने<br>
+
+आपल्या लाडक्या बाप्पाचे स्वागत करूया
+
+</p>
+
+<div class="ornament">
+✦ ❈ ✦
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 2 - INVITATION
+===================================================== -->
+
+<section class="slide">
+
+<div class="frame"></div>
+
+<div class="content">
+
+<div class="om">
+॥ मंगलमूर्ती मोरया ॥
+</div>
+
+<h2>
+आपले हार्दिक स्वागत
+</h2>
+
+<div class="gold-line"></div>
+
+<div class="invitation">
+
+<p>
+
+दरवर्षीप्रमाणे यंदाही आमच्याकडे<br>
+
+<span class="highlight">
+श्री गणेशोत्सव
+</span>
+
+<br>
+
+मोठ्या उत्साहात व भक्तिभावाने साजरा केला जाणार आहे.
+
+</p>
+
+<p>
+
+<strong class="highlight">
+१४ सप्टेंबर ते २५ सप्टेंबर २०२६
+</strong>
+
+</p>
+
+<p>
+
+या मंगलमय उत्सवामध्ये<br>
+
+आपण सहकुटुंब-सहपरिवार सहभागी होऊन<br>
+
+श्री गणरायांचे दर्शन घ्यावे,<br>
+
+असे आग्रहाचे आमंत्रण.
+
+</p>
+
+</div>
+
+<div class="ornament">
+✦ ❈ ✦
+</div>
+
+<p class="subtitle">
+॥ गणपती बाप्पा मोरया ॥
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 3 - GANPATI
+===================================================== -->
+
+<section class="slide">
+
+<div class="frame"></div>
+
+<div class="content">
+
+<div class="om">
+॥ श्री गणेशाय नमः ॥
+</div>
+
+<h2>
+श्री गणरायांचे आगमन
+</h2>
+
+<div class="gold-line"></div>
+
+
+<!-- =================================================
+     CHANGE GANPATI PHOTO HERE
+
+     Replace:
+     ganpati_photo_8Xk29.jpg
+
+     with your actual Ganpati image filename.
+
+     Example:
+     src="my_ganpati.jpg"
+
+     Keep the image in the same folder as this HTML file.
+================================================= -->
+
+<img
+    class="ganesh-image"
+    src="/v1.jpg"
+    alt="श्री गणपती"
+>
+
+
+<div class="invitation">
+
+<p>
+
+<strong class="highlight">
+स्थापना
+</strong>
+
+<br>
+
+१४ सप्टेंबर २०२६
+
+</p>
+
+<p>
+
+<strong class="highlight">
+गणेशोत्सव
+</strong>
+
+<br>
+
+१० दिवस भक्ती, आरती, प्रसाद आणि आनंद
+
+</p>
+
+<p>
+
+<strong class="highlight">
+अनंत चतुर्दशी / विसर्जन
+</strong>
+
+<br>
+
+२५ सप्टेंबर २०२६
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 4 - FAMILY
+===================================================== -->
+
+<section class="slide">
+
+<div class="frame"></div>
+
+<div class="content">
+
+<div class="om">
+॥ आपले आप्तेष्ट ॥
+</div>
+
+<h2>
+पाटील परिवार
+</h2>
+
+<div class="gold-line"></div>
+
+<p class="subtitle">
+
+बाप्पाच्या आगमनाचा हा आनंदाचा सोहळा<br>
+
+आपल्या सर्वांच्या उपस्थितीने अधिक मंगलमय होईल.
+
+</p>
+
+
+<div class="family-grid">
+
+
+<!-- =====================================================
+     INVITEE 1
+
+     CHANGE PHOTO:
+     Replace "family_photo_A7k29.jpg"
+
+     CHANGE NAME:
+     Replace "डॉ. मनोज पाटील"
+===================================================== -->
+
+<div class="person">
+
+<img
+    src="C:\Users\vansh\OneDrive\Desktop\g\1000394587.webp"
+    alt="डॉ. मनोज पाटील"
+>
+
+<div class="person-name">
+डॉ. मनोज पाटील
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     INVITEE 2
+
+     CHANGE PHOTO:
+     Replace "family_photo_B4m81.jpg"
+
+     CHANGE NAME:
+     Replace "कैलास पाटील"
+===================================================== -->
+
+<div class="person">
+
+<img
+    src="family_photo_B4m81.jpg"
+    alt="कैलास पाटील"
+>
+
+<div class="person-name">
+कैलास पाटील
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     INVITEE 3
+
+     CHANGE PHOTO:
+     Replace "family_photo_C9p43.jpg"
+
+     CHANGE NAME:
+     Replace "नवरत्नम पाटील"
+===================================================== -->
+
+<div class="person">
+
+<img
+    src="family_photo_C9p43.jpg"
+    alt="नवरत्नम पाटील"
+>
+
+<div class="person-name">
+नवरत्नम पाटील
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     INVITEE 4
+
+     CHANGE PHOTO:
+     Replace "family_photo_D2q76.jpg"
+
+     CHANGE NAME:
+     Replace "विलास पाटील"
+===================================================== -->
+
+<div class="person">
+
+<img
+    src="family_photo_D2q76.jpg"
+    alt="विलास पाटील"
+>
+
+<div class="person-name">
+विलास पाटील
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     INVITEE 5
+
+     CHANGE PHOTO:
+     Replace "family_photo_E5r18.jpg"
+
+     CHANGE NAME:
+     Replace "एर. मंगेश पाटील"
+===================================================== -->
+
+<div class="person">
+
+<img
+    src="family_photo_E5r18.jpg"
+    alt="एर. मंगेश पाटील"
+>
+
+<div class="person-name">
+एर. मंगेश पाटील
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     INVITEE 6
+
+     CHANGE PHOTO:
+     Replace "family_photo_F6t52.jpg"
+
+     CHANGE NAME:
+     Replace "विनोद पाटील"
+===================================================== -->
+
+<div class="person">
+
+<img
+    src="family_photo_F6t52.jpg"
+    alt="विनोद पाटील"
+>
+
+<div class="person-name">
+विनोद पाटील
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     INVITEE 7
+
+     CHANGE PHOTO:
+     Replace "family_photo_G3u94.jpg"
+
+     CHANGE NAME:
+     Replace "तुषार पाटील"
+===================================================== -->
+
+<div class="person">
+
+<img
+    src="family_photo_G3u94.jpg"
+    alt="तुषार पाटील"
+>
+
+<div class="person-name">
+तुषार पाटील
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     INVITEE 8
+
+     CHANGE PHOTO:
+     Replace "family_photo_H8v31.jpg"
+
+     CHANGE NAME:
+     Replace "मयंक पाटील"
+===================================================== -->
+
+<div class="person">
+
+<img
+    src="family_photo_H8v31.jpg"
+    alt="मयंक पाटील"
+>
+
+<div class="person-name">
+मयंक पाटील
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     INVITEE 9
+
+     CHANGE PHOTO:
+     Replace "family_photo_J1w67.jpg"
+
+     CHANGE NAME:
+     Replace "मानव पाटील"
+===================================================== -->
+
+<div class="person">
+
+<img
+    src="family_photo_J1w67.jpg"
+    alt="मानव पाटील"
+>
+
+<div class="person-name">
+मानव पाटील
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     INVITEE 10
+
+     CHANGE PHOTO:
+     Replace "family_photo_K4x25.jpg"
+
+     CHANGE NAME:
+     Replace "वंश पाटील"
+===================================================== -->
+
+<div class="person">
+
+<img
+    src="v2.jpg"
+    alt="वंश पाटील"
+>
+
+<div class="person-name">
+वंश पाटील
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 5 - DATES
+===================================================== -->
+
+<section class="slide">
+
+<div class="frame"></div>
+
+<div class="content">
+
+<div class="om">
+॥ मंगलमूर्ती मोरया ॥
+</div>
+
+<h2>
+दहा दिवसांचा गणेशोत्सव
+</h2>
+
+<div class="gold-line"></div>
+
+
+<div class="date-box">
+
+
+<div class="date-card">
+
+<div class="big">
+१४
+</div>
+
+<small>
+सप्टेंबर २०२६
+</small>
+
+<br>
+
+स्थापना
+
+</div>
+
+
+<div class="date-card">
+
+<div class="big">
+१०
+</div>
+
+<small>
+दिवस
+</small>
+
+<br>
+
+भक्ती व आनंद
+
+</div>
+
+
+<div class="date-card">
+
+<div class="big">
+२५
+</div>
+
+<small>
+सप्टेंबर २०२६
+</small>
+
+<br>
+
+विसर्जन
+
+</div>
+
+
+</div>
+
+
+<div class="invitation">
+
+<p>
+🌺 आरती &nbsp; • &nbsp; प्रसाद &nbsp; • &nbsp; दर्शन 🌺
+</p>
+
+<p>
+
+या पवित्र उत्सवात आपली उपस्थिती<br>
+
+आमच्यासाठी आशीर्वादासमान आहे.
+
+</p>
+
+</div>
+
+
+<div class="ornament">
+✦ ❈ ✦
+</div>
+
+<h2>
+आपली वाट पाहत आहोत!
+</h2>
+
+<p class="subtitle">
+
+गणपती बाप्पा मोरया!<br>
+
+मंगलमूर्ती मोरया!
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SLIDE 6 - ADDRESS
+===================================================== -->
+
+<section class="slide">
+
+<div class="frame"></div>
+
+<div class="content">
+
+<div class="om">
+॥ श्री गणेशाय नमः ॥
+</div>
+
+<h2>
+बाप्पाच्या दर्शनासाठी या
+</h2>
+
+<div class="gold-line"></div>
+
+
+<div class="invitation">
+
+<p class="highlight">
+📍 पत्ता
+</p>
+
+<!-- =====================================================
+     CHANGE ADDRESS HERE
+===================================================== -->
+
+<p>
+
+गंगा निवास,<br>
+
+डुंगे, भिवंडी
+
+</p>
+
+<br>
+
+
+<!-- =====================================================
+     CHANGE GOOGLE MAPS LINK HERE
+
+     Replace the href URL with your own Google Maps link.
+===================================================== -->
+
+<a
+    class="address"
+    href="https://maps.app.goo.gl/FMV8A768ZxRuymoM9"
+    target="_blank"
+>
+
+📍 Google Maps वर पत्ता पहा
+
+</a>
+
+</div>
+
+
+<div class="ornament">
+✦ ❈ ✦
+</div>
+
+<p class="subtitle">
+
+आपल्या आगमनाची आतुरतेने वाट पाहत आहोत.
+
+</p>
+
+<h1>
+॥ गणपती बाप्पा मोरया ॥
+</h1>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<button
+    class="arrow prev"
+    onclick="changeSlide(-1)"
+>
+‹
+</button>
+
+<button
+    class="arrow next"
+    onclick="changeSlide(1)"
+>
+›
+</button>
+
+<div
+    class="navigation"
+    id="dots"
+></div>
+
+
+<script>
+
+/* =====================================================
+   SLIDE SYSTEM
+===================================================== */
+
+const slides =
+    document.querySelectorAll(".slide");
+
+const dotsContainer =
+    document.getElementById("dots");
+
+let currentSlide = 0;
+
+let isOpened = false;
+
+
+/* =====================================================
+   CREATE DOTS
+===================================================== */
+
+slides.forEach((_,i)=>{
+
+    const dot =
+        document.createElement("div");
+
+    dot.className = "dot";
+
+    dot.onclick = () => {
+
+        currentSlide = i;
+
+        showSlide(currentSlide);
+
+    };
+
+    dotsContainer.appendChild(dot);
+
+});
+
+
+const dots =
+    document.querySelectorAll(".dot");
+
+
+/* =====================================================
+   SHOW SLIDE
+===================================================== */
+
+function showSlide(index){
+
+    if(index < 0)
+        index = slides.length - 1;
+
+    if(index >= slides.length)
+        index = 0;
+
+    currentSlide = index;
+
+
+    slides.forEach((slide,i)=>{
+
+        slide.classList.toggle(
+            "active",
+            i === currentSlide
+        );
+
+    });
+
+
+    dots.forEach((dot,i)=>{
+
+        dot.classList.toggle(
+            "active",
+            i === currentSlide
+        );
+
+    });
+
+}
+
+
+/* =====================================================
+   NEXT / PREVIOUS SLIDE
+===================================================== */
+
+function changeSlide(direction){
+
+    playBell();
+
+    currentSlide += direction;
+
+
+    if(currentSlide >= slides.length)
+        currentSlide = 0;
+
+
+    if(currentSlide < 0)
+        currentSlide = slides.length - 1;
+
+
+    showSlide(currentSlide);
+
+}
+
+
+/* =====================================================
+   OPENING CIRCLE
+===================================================== */
+
+function openInvitation(){
+
+    if(isOpened)
+        return;
+
+    isOpened = true;
+
+
+    const button =
+        document.getElementById("ganeshButton");
+
+
+    button.classList.add("open");
+
+
+    playBell();
+
+
+    setTimeout(()=>{
+
+        currentSlide = 1;
+
+        showSlide(currentSlide);
+
+        button.classList.remove("open");
+
+    },900);
+
+}
+
+
+/* =====================================================
+   KEYBOARD SUPPORT
+===================================================== */
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key === "ArrowRight")
+        changeSlide(1);
+
+    if(e.key === "ArrowLeft")
+        changeSlide(-1);
+
+});
+
+
+/* =====================================================
+   SWIPE SUPPORT
+===================================================== */
+
+let touchStartX = 0;
+
+
+document.addEventListener(
+    "touchstart",
+    (e)=>{
+
+        touchStartX =
+            e.changedTouches[0].screenX;
+
+    }
+);
+
+
+document.addEventListener(
+    "touchend",
+    (e)=>{
+
+        const touchEndX =
+            e.changedTouches[0].screenX;
+
+
+        if(touchStartX - touchEndX > 60)
+            changeSlide(1);
+
+
+        if(touchEndX - touchStartX > 60)
+            changeSlide(-1);
+
+    }
+);
+
+
+/* =====================================================
+   GENTLE GANESH BELL
+===================================================== */
+
+function playBell(){
+
+    try{
+
+        const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+
+        const ctx =
+            new AudioContext();
+
+
+        const oscillator =
+            ctx.createOscillator();
+
+
+        const gain =
+            ctx.createGain();
+
+
+        oscillator.frequency.value = 620;
+
+        oscillator.type = "sine";
+
+
+        gain.gain.setValueAtTime(
+            .0001,
+            ctx.currentTime
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+            .12,
+            ctx.currentTime + .02
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            ctx.currentTime + 1.3
+        );
+
+
+        oscillator.connect(gain);
+
+        gain.connect(ctx.destination);
+
+
+        oscillator.start();
+
+        oscillator.stop(
+            ctx.currentTime + 1.3
+        );
+
+
+    }catch(e){}
+
+}
+
+
+/* =====================================================
+   FLOATING GOLDEN PETALS
+===================================================== */
+
+for(let i=0;i<24;i++){
+
+    const petal =
+        document.createElement("div");
+
+
+    petal.className = "petal";
+
+
+    petal.innerHTML =
+        Math.random() > .5
+        ? "✦"
+        : "❈";
+
+
+    petal.style.left =
+        Math.random()*100 + "%";
+
+
+    petal.style.fontSize =
+        (8 + Math.random()*12) + "px";
+
+
+    petal.style.animationDuration =
+        (7 + Math.random()*9) + "s";
+
+
+    petal.style.animationDelay =
+        (-Math.random()*12) + "s";
+
+
+    document.body.appendChild(petal);
+
+}
+
+
+/* =====================================================
+   INITIAL SLIDE
+===================================================== */
+
+showSlide(0);
+
+</script>
+
+</body>
+</html>
